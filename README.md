@@ -120,7 +120,7 @@ await REPL.execute('new Buffer(42);')
 
 // Builtin libs too, because we specified it:
 await REPL.execute('querystring.stringify({ foo: \'bar\' });');
-await REPL.execute('child_process.execSync('echo "Hi!"').toString();');
+await REPL.execute('child_process.execSync(\'echo "Hi!"\').toString();');
 
 // And, our own passed context:
 await REPL.execute('foo === \'bar\' && baz === \'qux\';')
