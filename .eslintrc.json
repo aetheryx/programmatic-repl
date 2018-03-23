@@ -1,0 +1,13 @@
+{
+    "extends": "semistandard",
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "script"
+    },
+    "rules": {
+        "no-multi-spaces": "off",
+        "key-spacing": "off",
+        "standard/array-bracket-even-spacing": "off",
+        "camelcase": "off"
+    }
+}

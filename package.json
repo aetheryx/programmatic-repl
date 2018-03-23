@@ -1,0 +1,32 @@
+{
+  "name": "programmatic-repl",
+  "version": "1.0.0",
+  "description": "A module to programmatically simulate a repl",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aetheryx/programmatic-repl.git"
+  },
+  "keywords": [
+    "repl",
+    "vm"
+  ],
+  "author": "aetheryx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aetheryx/programmatic-repl/issues"
+  },
+  "homepage": "https://github.com/aetheryx/programmatic-repl#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-semistandard": "^12.0.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
