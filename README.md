@@ -47,7 +47,7 @@ await REPL.execute('5');
 // returns 5
 ```
 ```js
-await REPL.execute('const myObject = { foo: 'bar' };');
+await REPL.execute('const myObject = { foo: \'bar\' };');
 // returns undefined
 
 await REPL.execute('myObject');
