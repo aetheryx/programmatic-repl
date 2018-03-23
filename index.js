@@ -23,7 +23,8 @@ class REPL {
         setImmediate,
         clearImmediate,
         clearInterval,
-        clearTimeout
+        clearTimeout,
+        process
       }, ctx);
     }
 
@@ -92,24 +93,9 @@ class REPL {
       return this.prompt(command, true);
     }
 
-    let result;
-    try {
-      result = await runInContext(command, this.ctx, {
-        filename: 'programmatic-repl'
-      });
-
-      this.lastRanCommandOutput = result;
-
-      if (typeof result !== 'string') {
-        result = inspect(result, {
-          depth: +!(inspect(result, { depth: 1, showHidden: true }).length > 1990), // Results in either 0 or 1
-          showHidden: true
-        });
-      }
-    } catch (e) {
-      const error = e.stack || e;
-      result = `ERROR:\n${typeof error === 'string' ? error : inspect(error, { depth: 1 })}`;
-    }
+    const result = this.lastRanCommandOutput = await runInContext(command, this.ctx, {
+      filename: 'programmatic-repl'
+    });
 
     return result;
   }

@@ -1,6 +1,6 @@
 {
   "name": "programmatic-repl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module to programmatically simulate a repl",
   "main": "index.js",
   "scripts": {
