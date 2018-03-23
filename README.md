@@ -104,7 +104,7 @@ await REPL.execute('}');
 ```
 
 And lastly, some examples for REPL parameters:
-```
+```js
 const REPL = new ProgrammaticREPL({
   includeNative: true,
   includeBuiltinLibs: true,
