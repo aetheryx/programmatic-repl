@@ -5,9 +5,10 @@
 The module exports the `REPL` class. The parameters to this class are `options, context`.
 
 #### Options
-All of the options are optional. Indentation defaults to 2.
+All of the options are optional. Indentation defaults to 2.  
+
 Parameter | Type | Description
---- | ---
+--- | --- | ---
 `options.includeNative` | Boolean | This property will include native Node.js functions and properties in the REPL context. Specifically `require`, `Buffer`, `        __dirname`, `setImmediate`, `clearImmediate`, `clearInterval`, `clearTimeout` and `process`.
 `options.includeBuiltinLibs` | Boolean | This property will include all of the native Node.js modules and libraries in the REPL context (e.g. `child_process` and `fs`). A full list of these modules can be found [here](https://github.com/nodejs/node/blob/master/lib/internal/modules/cjs/helpers.js#L100-#L105).
 `options.indentation` | Number | This is the amount of spaces of indentation the REPL will show intermediate outputs with.  
@@ -32,7 +33,8 @@ const REPL = new ProgrammaticREPL({
 # Usage
 Once you've initiated your REPL, you can use the `execute` method. The `execute` method takes 1 parameter (in the form of a String): the input. The method always returns a Promise. The result will either be the computed value or an intermediate output.
 
-The input is ofcourse your JavaScript, but the following commands / variables are available:
+The input is ofcourse your JavaScript, but the following commands / variables are available:  
+
 Name | Description
 --- | ---
 `.clear` | This command deletes any variables you've made and resets the context fully. 
