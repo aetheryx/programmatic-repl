@@ -43,23 +43,23 @@ Name | Description
 #### Examples
 <sup>*The examples assume the REPL has already been initiated.*</sup>
 ```js
-await REPL.execute('5');
+await REPL.execute('5;');
 // returns 5
 ```
 ```js
 await REPL.execute('const myObject = { foo: \'bar\' };');
 // returns undefined
 
-await REPL.execute('myObject');
+await REPL.execute('myObject;');
 // returns { foo: 'bar' }
 
-await REPL.execute('Object.keys(_)');
+await REPL.execute('Object.keys(_);');
 // returns [ 'foo' ]
 
 await REPL.execute('.clear');
 // returns 'Successfully cleared variables.'
 
-await REPL.execute('myObject');
+await REPL.execute('myObject;');
 // throws a ReferenceError: myObject is not defined
 ```
 
@@ -123,7 +123,7 @@ await REPL.execute('querystring.stringify({ foo: \'bar\' });');
 await REPL.execute('child_process.execSync('echo "Hi!"').toString();');
 
 // And, our own passed context:
-await REPL.execute('foo === 'bar' && baz === 'qux')
+await REPL.execute('foo === \'bar\' && baz === \'qux\';')
 // returns true
 ```
 
