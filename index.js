@@ -1,4 +1,3 @@
-const { inspect } = require('util');
 const { createContext, runInContext } = require('vm');
 const { sep } = require('path');
 
@@ -8,13 +7,13 @@ class REPL {
   constructor (config, ctx) {
     this.config = config;
     this.sourceCtx = ctx;
-    this.ctx = this.buildContext(config, ctx);
+    this.ctx = this._buildContext(config, ctx);
 
     this.statementQueue = [];
     this.lastRanCommandOutput = '';
   }
 
-  buildContext (config = this.config, ctx = this.sourceCtx) {
+  _buildContext (config = this.config, ctx = this.sourceCtx) {
     if (config.includeNative) {
       ctx = Object.assign({
         require,
@@ -29,14 +28,14 @@ class REPL {
     }
 
     if (config.includeBuiltinLibs) {
-      ctx = Object.assign(this.buildBuiltinLibs(), ctx);
+      ctx = Object.assign(this._buildBuiltinLibs(), ctx);
     }
 
     createContext(ctx);
     return ctx;
   }
 
-  buildBuiltinLibs () {
+  _buildBuiltinLibs () {
     const output = {};
     const { _builtinLibs } = require('repl');
 
@@ -47,7 +46,7 @@ class REPL {
     return output;
   }
 
-  getIndentation (isClosing = false) {
+  _getIndentation (isClosing = false) {
     let indentation = 0;
     for (const statement of this.statementQueue) {
       if (statement.endsWith('{')) {
@@ -66,7 +65,7 @@ class REPL {
 
   prompt (command, append) {
     if (append) {
-      this.statementQueue.push(' '.repeat(this.getIndentation()) + command);
+      this.statementQueue.push(' '.repeat(this._getIndentation()) + command);
     }
     return `${this.statementQueue.join('\n')}\n${' '.repeat(2 * this.config.indentation)}...`;
   }
@@ -81,7 +80,7 @@ class REPL {
     this.ctx._ = this.lastRanCommandOutput;
 
     if (this.statementQueue[0] && command.match(closingTagRX)) {
-      this.statementQueue.push(' '.repeat(this.getIndentation(true)) + command);
+      this.statementQueue.push(' '.repeat(this._getIndentation(true)) + command);
       const [ { length: opening }, { length: closing } ] = [ this.statementQueue.filter(g => g.endsWith('{')), this.statementQueue.filter(g => g.match(closingTagRX)) ];
       if (opening !== closing) {
         return this.prompt(command, false);
@@ -94,7 +93,7 @@ class REPL {
     }
 
     const result = this.lastRanCommandOutput = await runInContext(command, this.ctx, {
-      filename: 'programmatic-repl'
+      filename: this.config.name || 'programmatic-repl'
     });
 
     return result;
