@@ -8,7 +8,7 @@ The module exports the `REPL` class. The parameters to this class are `options, 
 All of the options are optional.
 
 Parameter | Type | Description | Default
---- | --- | ---
+--- | --- | --- | ---
 `options.includeNative` | Boolean | This property will include native Node.js functions and properties in the REPL context. Specifically `require`, `Buffer`, `        __dirname`, `setImmediate`, `clearImmediate`, `clearInterval`, `clearTimeout` and `process`. | false
 `options.includeBuiltinLibs` | Boolean | This property will include all of the native Node.js modules and libraries in the REPL context (e.g. `child_process` and `fs`). A full list of these modules can be found [here](https://github.com/nodejs/node/blob/master/lib/internal/modules/cjs/helpers.js#L100-#L105). | false
 `options.indentation` | Number | This is the amount of spaces of indentation the REPL will show intermediate outputs with. | 2
