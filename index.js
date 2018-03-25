@@ -10,7 +10,7 @@ class REPL {
     this.ctx = this._buildContext(config, ctx);
 
     this.statementQueue = [];
-    this.lastRanCommandOutput = '';
+    this.lastRanCommandOutput = undefined;
   }
 
   _buildContext (config = this.config, ctx = this.sourceCtx) {
@@ -67,12 +67,12 @@ class REPL {
     if (append) {
       this.statementQueue.push(' '.repeat(this._getIndentation()) + command);
     }
-    return `${this.statementQueue.join('\n')}\n${' '.repeat(2 * this.config.indentation)}...`;
+    return `${this.statementQueue.join('\n')}\n${' '.repeat(this._getIndentation())}...`;
   }
 
   async execute (command) {
     if (command === '.clear') {
-      this.ctx = this.buildContext();
+      this.ctx = this._buildContext();
       this.statementQueue = [];
       return 'Successfully cleared variables.';
     }
