@@ -32,10 +32,12 @@ describe('initiation', () => {
         'require',
         'Buffer',
         '__dirname',
+        'setTimeout',
+        'setInterval',
         'setImmediate',
-        'clearImmediate',
-        'clearInterval',
         'clearTimeout',
+        'clearInterval',
+        'clearImmediate',
         'process'
       );
   });

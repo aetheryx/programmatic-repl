@@ -19,10 +19,12 @@ class REPL {
         require,
         Buffer,
         __dirname: require.main.filename.split(sep).slice(0, -1),
+        setTimeout,
+        setInterval,
         setImmediate,
-        clearImmediate,
-        clearInterval,
         clearTimeout,
+        clearInterval,
+        clearImmediate,
         process
       }, ctx);
     }
