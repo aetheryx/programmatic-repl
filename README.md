@@ -129,4 +129,5 @@ await REPL.execute('foo === \'bar\' && baz === \'qux\';')
 ```
 
 # Contributing
-it's late i'll do this tomorrow
+To contribute, please make sure you follow the same code style and lint your code.
+Also important, make sure you detail your changes made and why they were made the way they were.
