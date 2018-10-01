@@ -1,5 +1,5 @@
 # programmatic-repl
-`programmatic-repl` is a Node.js module that allows one to simulate a repl programmatically. This is very useful for embedded application where you'd like to simulate a repl. If you have plans to use this for a CLI application, I would suggest [the official repl module](https://nodejs.org/api/repl.html) instead.
+`programmatic-repl` is a Node.js module that allows one to simulate a repl programmatically. This is very useful for an embedded application where you'd like to simulate a repl. If you have plans to use this for a CLI application, I would suggest [the official repl module](https://nodejs.org/api/repl.html) instead.
 
 # Initializing
 The module exports the `REPL` class. The parameters to this class are `options, context`.
@@ -34,7 +34,7 @@ const REPL = new ProgrammaticREPL({
 # Usage
 Once you've initiated your REPL, you can use the `execute` method. The `execute` method takes 1 parameter (in the form of a String): the input. The method always returns a Promise. The result will either be the computed value or an intermediate output.
 
-The input is ofcourse your JavaScript, but the following commands / variables are available:  
+The input is of course your JavaScript, but the following commands / variables are available:  
 
 Name | Description
 --- | ---
