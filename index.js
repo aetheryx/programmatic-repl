@@ -15,7 +15,7 @@ class REPL {
 
   _buildContext (config = this.config, ctx = this.sourceCtx) {
     if (config.includeNative) {
-      ctx = Object.assign({
+      ctx = {
         require,
         Buffer,
         __dirname: require.main.filename.split(sep).slice(0, -1),
@@ -25,12 +25,13 @@ class REPL {
         clearTimeout,
         clearInterval,
         clearImmediate,
-        process
-      }, ctx);
+        process,
+        ...ctx
+      };
     }
 
     if (config.includeBuiltinLibs) {
-      ctx = Object.assign(this._buildBuiltinLibs(), ctx);
+      ctx = { ...this._buildBuiltInLibs(), ...ctx };
     }
 
     createContext(ctx);
