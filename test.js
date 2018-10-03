@@ -4,13 +4,14 @@ const chai = require('chai');
 chai.use(require('chai-as-promised'));
 const { expect } = chai;
 
-const ProgrammaticRepl = require(`${__dirname}/index.js`);
+const ProgrammaticREPL = require(`${__dirname}/index.js`);
 
-const getREPL = (cfg, ctx = {}) => new ProgrammaticRepl(Object.assign({
+const getREPL = (cfg, ctx = {}) => new ProgrammaticREPL({
   includeNative: true,
   includeBuiltinLibs: true,
   indentation: 2
-}, cfg), ctx);
+  ...cfg
+}, ctx);
 
 describe('initiation', () => {
   it('should pass on configs properly without throwing', () => {
